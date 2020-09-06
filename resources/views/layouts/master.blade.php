@@ -203,8 +203,7 @@
                             </ul> --}}
                         </li>
                         <li class="nav-item">
-                            <router-link to"/profile" class="nav-link">
-
+                            <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Profile</p>
                             </router-link>

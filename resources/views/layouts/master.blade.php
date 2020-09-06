@@ -11,9 +11,8 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-
-        <!-- Navbar -->
+    <div class="wrapper" id="app">
+     <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
@@ -227,7 +226,7 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="container-fluid">
-        
+                    <router-view></router-view>
                 </div>
             </section>
         </div>

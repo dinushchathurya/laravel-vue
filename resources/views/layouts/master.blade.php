@@ -169,13 +169,13 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                          <li class="nav-item">
                             <router-link to="/dashboard" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
+                                <i class="nav-icon fas fa-home blue"></i>
                                 <p>Dashboard</p>
                             </router-link>
                         </li>
                         <li class="nav-item has-treeview menu-close">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-cog"></i>
+                                <i class="nav-icon fas fa-cog green"></i>
                                 <p>
                                   Management
                                   <i class="right fas fa-angle-left"></i>
@@ -204,13 +204,13 @@
                         </li>
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-user orange"></i>
                                 <p>Profile</p>
                             </router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="nav-icon fas fa-power-off"></i>
+                                <i class="nav-icon fas fa-power-off red"></i>
                                 <p> {{ __('Logout') }}</p>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

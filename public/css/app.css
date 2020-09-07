@@ -48199,3 +48199,13 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.navbar-laravel {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.router-link-exact-active {
+  background-color: #4a3dbe;
+  color: white !important;
+}
+

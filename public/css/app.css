@@ -31219,6 +31219,18 @@ a.text-muted:hover {
   color: #ffffff;
 }@charset "UTF-8";
 
+.red {
+  color: #e3342f;
+}
+
+.orange {
+  color: #f6993f;
+}
+
+.green {
+  color: #38c172;
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

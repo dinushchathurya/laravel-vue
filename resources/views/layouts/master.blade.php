@@ -181,26 +181,20 @@
                                   <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            {{-- <ul class="nav nav-treeview">
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <router-link to="/users" class="nav-link ">
                                         <i class="fas fa-circle nav-icon"></i>
-                                        <p>Dashboard v1</p>
-                                    </a>
+                                        <p>Users</p>
+                                    </router-link>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
+                                {{-- <li class="nav-item">
+                                    <a href="" class="nav-link">
                                         <i class="fas fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
+                                        <p>Active</p>
                                     </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index3.html" class="nav-link">
-                                        <i class="fas fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li>
-                            </ul> --}}
+                                </li> --}}
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">

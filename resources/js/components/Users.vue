@@ -65,6 +65,18 @@
 </template>
 <script>
     export default{
+         data () {
+            return {
+                form: new Form({
+                    name: '',
+                    email: '',
+                    password: '',
+                    type: '',
+                    bio: '',
+                    photo: ''
+                })
+            }
+        },
         mounted(){
             console.log('Component Mounted')
         }

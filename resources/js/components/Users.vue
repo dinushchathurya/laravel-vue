@@ -108,6 +108,11 @@
                 })
             }
         },
+        methods:{
+            createUser(){
+                this.form.post('api/user');
+            }
+        },
         mounted(){
             console.log('Component Mounted')
         }

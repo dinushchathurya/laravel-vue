@@ -54577,7 +54577,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 });
 Vue.filter('upText', function (text) {
-  return text, upperCase();
+  return text.toUpperCase();
 });
 /**
  * The following block of code may be used to automatically register your

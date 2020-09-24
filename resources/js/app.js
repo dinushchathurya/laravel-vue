@@ -31,7 +31,7 @@ const router = new VueRouter({
 })
 
 Vue.filter('upText', function(text){
-    return text,upperCase();
+    return text.toUpperCase();
 })
 /**
  * The following block of code may be used to automatically register your

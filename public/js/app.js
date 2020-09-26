@@ -2146,7 +2146,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     createUser: function createUser() {
+      this.$Progress.start();
       this.form.post('api/user');
+      this.$Progress.finish();
     }
   },
   mounted: function mounted() {
@@ -76102,7 +76104,7 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
 Vue.use(vue_progressbar__WEBPACK_IMPORTED_MODULE_3___default.a, {
   color: 'rgb(143, 255, 199)',
   failedColor: 'red',
-  height: '2px'
+  height: '15px'
 });
 
 var Dashboard = __webpack_require__(/*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue")["default"];

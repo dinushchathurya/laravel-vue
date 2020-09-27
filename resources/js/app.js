@@ -9,6 +9,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 import moment from 'moment';
 import { Form, HasError, AlertError } from 'vform';
+import swal from 'sweetalert2';
+window.swal = swal;
 
 window.Form = Form;
 Vue.component(HasError.name, HasError)

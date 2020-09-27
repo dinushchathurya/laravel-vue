@@ -122,13 +122,17 @@
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
-                        if (result.isConfirmed) {
-                            swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                            )
-                        }
+                        this.form.delete('api/user/'+id).then(()=>{
+                             if (result.isConfirmed) {
+                                swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                                )
+                            }
+                        }).catch(()=>{
+                            swal("Failed!", "There was something went wrong.", "wrong");
+                        })
                     })
             },
             loadUsers(){

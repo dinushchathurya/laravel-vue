@@ -5,7 +5,7 @@
                 <div class="card-header">
                 <h3 class="card-title">Users Table</h3>
                     <div class="card-tools">
-                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add New User 
+                        <button class="btn btn-success" data-toggle="modal" data-target="#addNew">Add New User 
                             <i class ="fas fa-user-plus"></i>
                         </button>
                     </div>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="addNew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -118,11 +118,21 @@
             createUser(){
                 this.$Progress.start();
                 this.form.post('api/user');
+                Fire.$emit('AfterCreate');
+                $('#addNew').modal('hide')
+                toast.fire({
+                    icon: 'success',
+                    title: 'User created successfully'
+                });
                 this.$Progress.finish();
             }
         },
         mounted(){
            this.loadUsers();
+           Fire.$on('AfterCreate', () => {
+               this.loadUsers();
+           });
+        //    setInterval(() => this.loadUsers(), 3000)
         }
     }
 </script>

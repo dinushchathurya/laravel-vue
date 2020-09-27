@@ -2148,11 +2148,22 @@ __webpack_require__.r(__webpack_exports__);
     createUser: function createUser() {
       this.$Progress.start();
       this.form.post('api/user');
+      Fire.$emit('AfterCreate');
+      $('#addNew').modal('hide');
+      toast.fire({
+        icon: 'success',
+        title: 'User created successfully'
+      });
       this.$Progress.finish();
     }
   },
   mounted: function mounted() {
+    var _this2 = this;
+
     this.loadUsers();
+    Fire.$on('AfterCreate', function () {
+      _this2.loadUsers();
+    }); //    setInterval(() => this.loadUsers(), 3000)
   }
 });
 
@@ -63810,7 +63821,7 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
-          id: "exampleModal",
+          id: "addNew",
           tabindex: "-1",
           "aria-labelledby": "exampleModalLabel",
           "aria-hidden": "true"
@@ -64074,7 +64085,7 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "btn btn-success",
-            attrs: { "data-toggle": "modal", "data-target": "#exampleModal" }
+            attrs: { "data-toggle": "modal", "data-target": "#addNew" }
           },
           [
             _vm._v("Add New User \n                        "),
@@ -79452,6 +79463,7 @@ var toast = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
     toast.addEventListener('mouseleave', Swal.resumeTimer);
   }
 });
+window.toast = toast;
 window.Form = vform__WEBPACK_IMPORTED_MODULE_1__["Form"];
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["HasError"]);
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]);
@@ -79491,6 +79503,7 @@ Vue.filter('upText', function (text) {
 Vue.filter('myDate', function (created) {
   return moment__WEBPACK_IMPORTED_MODULE_0___default()(created).subtract(10, 'days').calendar();
 });
+window.Fire = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

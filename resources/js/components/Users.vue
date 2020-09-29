@@ -30,11 +30,11 @@
                             <td>{{user.type | upText}}</td>
                             <td>{{user.created_at | myDate }}</td>
                             <td>
-                                <a href="#" @click="deleteUser(user.id)">
+                                <a href="">
                                     <i class="fa fa-edit blue"></i>
                                 </a>
                                 /
-                                <a href="#">
+                                <a href="#" @click="deleteUser(user.id)">
                                     <i class="fa fa-trash red"></i>
                                 </a>
                             </td>
@@ -123,16 +123,14 @@
                     confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         this.form.delete('api/user/'+id).then(()=>{
-                             if (result.isConfirmed) {
-                                swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                                )
-                            }
+                            swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                            )
                         }).catch(()=>{
                             swal("Failed!", "There was something went wrong.", "wrong");
-                        })
+                        });
                     })
             },
             loadUsers(){

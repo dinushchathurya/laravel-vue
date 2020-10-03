@@ -42,8 +42,11 @@ Vue.use(VueProgressBar, {
 let Dashboard = require('./components/Dashboard.vue').default;
 let Profile = require('./components/Profile.vue').default;
 let User = require('./components/Users.vue').default;
+let Developer = require('./components/Developer.vue').default;
+
 let routes = [
     { path: '/dashboard', component: Dashboard},
+    { path: '/developer', component: Developer },
     { path: '/profile', component: Profile},
     { path: '/users', component: User}
 ]
@@ -71,8 +74,20 @@ Vue.filter('myDate', function(created){
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

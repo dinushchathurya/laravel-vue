@@ -167,7 +167,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <router-link to="/dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-home blue"></i>
                                 <p>Dashboard</p>
@@ -184,18 +184,19 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <router-link to="/users" class="nav-link ">
-                                        <i class="fas fa-circle nav-icon"></i>
+                                        <i class=""></i>
                                         <p>Users</p>
                                     </router-link>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="fas fa-circle nav-icon"></i>
-                                        <p>Active</p>
-                                    </a>
-                                </li> --}}
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <router-link to="/developer" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>Developers</p>
+                            </router-link>
+                        </li>
+
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fas fa-user orange"></i>

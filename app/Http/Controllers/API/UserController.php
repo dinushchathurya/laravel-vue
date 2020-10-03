@@ -9,6 +9,10 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleweare('api');
+    }
     /**
      * Display a listing of the resource.
      *

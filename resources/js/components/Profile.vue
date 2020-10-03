@@ -93,8 +93,24 @@
 
 <script>
     export default {
+        data(){
+            return  {
+                form: new Form({
+                    id: '',
+                    name: '',
+                    email: '',
+                    password: '',
+                    type: '',
+                    bio: '',
+                    photo: ''
+                })
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        created(){
+            axios.get("api/user").then(({ data }) => (this.form.fill (data)));
         }
     }
 </script>

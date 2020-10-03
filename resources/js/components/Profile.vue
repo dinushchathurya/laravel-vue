@@ -49,15 +49,15 @@
                     <div class="tab-pane active" id="settings">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                            <label for="inputName"  class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="name" class="form-control" id="inputName" placeholder="Name">
+                                <input v-model="form.name" type="text" name="name" placeholder="Name" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group">
@@ -110,7 +110,7 @@
             console.log('Component mounted.')
         },
         created(){
-            axios.get("api/user").then(({ data }) => (this.form.fill (data)));
+            axios.get("api/profile").then(({ data }) => (this.form.fill (data)));
         }
     }
 </script>

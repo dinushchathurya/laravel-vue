@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this -> middleweare('api');
+        $this -> middleweare('auth:api');
     }
     /**
      * Display a listing of the resource.

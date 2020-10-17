@@ -110,8 +110,13 @@
             console.log('Component mounted.')
         },
         methods:{
-            updateprofile(file){
-                
+            updateprofile(e){
+                let file = e.target.files[0];
+                let reader = new FileReader();
+                reader.onloadend = (file)=>{
+                    this.form.photo = reader.result;
+                }
+                reader.readAsDataURL(file);
             }
         },
         created(){

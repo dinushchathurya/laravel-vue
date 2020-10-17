@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group  mt-3">
                             <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" class="btn btn-danger">Submit</button>
+                                <button type="submit" @click.prevent="updateInfo" class="btn btn-danger">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -110,6 +110,15 @@
             console.log('Component mounted.')
         },
         methods:{
+            updateInfo(){
+                this.form.put('api/profile/')
+                .then(()=>{
+
+                })
+                .catch(()=>{
+                    
+                })
+            },
             updateprofile(e){
                 let file = e.target.files[0];
                 let reader = new FileReader();

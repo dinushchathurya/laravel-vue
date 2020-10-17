@@ -8,7 +8,7 @@
                         <h5 class="widget-user-desc text-right">Web Designer</h5>
                     </div>
                     <div class="widget-user-image">
-                        <img class="img-circle" src="" alt="User Avatar">
+                        <img class="img-circle" :src="getProfilePhoto()" alt="User Avatar">
                     </div>
                     <div class="card-footer">
                         <div class="row">
@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="inputName" class="col-sm-2 col-form-label">Passport</label>
                                 <div class="col-sm-12">
-                                    <input type="passport" class="form-control" id="inputName" placeholder="Name">
+                                    <input type="passport"  v-model="form.password" class="form-control" id="inputName" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group  mt-3">
@@ -114,6 +114,9 @@
             console.log('Component mounted.')
         },
         methods: {
+            getProfilePhoto(){
+                return "img/profile/"+this.form.photo;
+            },
             updateInfo() {
                 this.$Progress.start();
                 this.form.put('api/profile/')
@@ -133,8 +136,9 @@
                     }
                     reader.readAsDataURL(file);
                 }else{
-                    Swal.fire({
+                    swal.fire({
                         type : 'error',
+                        icon: 'error',
                         title: ' Oops...',
                         text :'Your are uploading a large file',
                     })

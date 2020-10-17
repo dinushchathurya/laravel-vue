@@ -115,12 +115,13 @@
         },
         methods: {
             updateInfo() {
+                this.$Progress.start();
                 this.form.put('api/profile/')
                     .then(() => {
-
+                        this.$Progress.finish();
                     })
                     .catch(() => {
-
+                        this.$Progress.fail();
                     })
             },
             updateprofile(e) {

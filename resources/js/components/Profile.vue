@@ -12,24 +12,24 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                        <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                            <h5 class="description-header">3,200</h5>
-                            <span class="description-text">SALES</span>
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">3,200</h5>
+                                    <span class="description-text">SALES</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4 border-right">
-                            <div class="description-block">
-                            <h5 class="description-header">13,000</h5>
-                            <span class="description-text">FOLLOWERS</span>
+                            <div class="col-sm-4 border-right">
+                                <div class="description-block">
+                                    <h5 class="description-header">13,000</h5>
+                                    <span class="description-text">FOLLOWERS</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="description-block">
-                            <h5 class="description-header">35</h5>
-                            <span class="description-text">PRODUCTS</span>
+                            <div class="col-sm-4">
+                                <div class="description-block">
+                                    <h5 class="description-header">35</h5>
+                                    <span class="description-text">PRODUCTS</span>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -47,43 +47,47 @@
                     <div class="tab-pane" id="activity">
                     </div>
                     <div class="tab-pane active" id="settings">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="inputName"  class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input v-model="form.name" type="text" name="name" placeholder="Name" class="form-control">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input v-model="form.name" type="text" name="name" placeholder="Name"
+                                        class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" v-model="form.email" class="form-control" id="inputEmail"
+                                        placeholder="Email">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                            <div class="form-group">
+                                <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="inputExperience"
+                                        placeholder="Experience"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group ">
-                           <label for="inputExperience" class="col-sm-2 col-form-label">Profile Photo</label>
-                            <div class="col-sm-12">
-                                <input type="file" @change="updateprofile" class="form-control" name="photo">
+                            <div class="form-group ">
+                                <label for="inputExperience" class="col-sm-2 col-form-label">Profile Photo</label>
+                                <div class="col-sm-12">
+                                    <input type="file" @change="updateprofile" class="form-control" name="photo">
+                                </div>
                             </div>
-                        </div>
-                         <div class="form-group">
-                            <label for="inputName" class="col-sm-2 col-form-label">Passport</label>
-                            <div class="col-sm-12">
-                                <input type="passport" class="form-control" id="inputName" placeholder="Name">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-2 col-form-label">Passport</label>
+                                <div class="col-sm-12">
+                                    <input type="passport" class="form-control" id="inputName" placeholder="Name">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group  mt-3">
-                            <div class="offset-sm-2 col-sm-10">
-                                <button type="submit" @click.prevent="updateInfo" class="btn btn-danger">Submit</button>
+                            <div class="form-group  mt-3">
+                                <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" @click.prevent="updateInfo"
+                                        class="btn btn-danger">Submit</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -93,8 +97,8 @@
 
 <script>
     export default {
-        data(){
-            return  {
+        data() {
+            return {
                 form: new Form({
                     id: '',
                     name: '',
@@ -109,27 +113,38 @@
         mounted() {
             console.log('Component mounted.')
         },
-        methods:{
-            updateInfo(){
+        methods: {
+            updateInfo() {
                 this.form.put('api/profile/')
-                .then(()=>{
+                    .then(() => {
 
-                })
-                .catch(()=>{
-                    
-                })
+                    })
+                    .catch(() => {
+
+                    })
             },
-            updateprofile(e){
+            updateprofile(e) {
                 let file = e.target.files[0];
                 let reader = new FileReader();
-                reader.onloadend = (file)=>{
-                    this.form.photo = reader.result;
+                if (file['size'] < 2111775) {
+                    reader.onloadend = (file) => {
+                        this.form.photo = reader.result;
+                    }
+                    reader.readAsDataURL(file);
+                }else{
+                    swal({
+                        type : 'error',
+                        title: ' Oops...',
+                        text :'Your are uploading a large file',
+                    })
                 }
-                reader.readAsDataURL(file);
             }
         },
-        created(){
-            axios.get("api/profile").then(({ data }) => (this.form.fill (data)));
+        created() {
+            axios.get("api/profile").then(({
+                data
+            }) => (this.form.fill(data)));
         }
     }
+
 </script>

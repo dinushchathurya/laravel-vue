@@ -133,7 +133,7 @@
                     }
                     reader.readAsDataURL(file);
                 }else{
-                    swal({
+                    Swal.fire({
                         type : 'error',
                         title: ' Oops...',
                         text :'Your are uploading a large file',

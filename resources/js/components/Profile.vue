@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="inputName" class="col-sm-2 col-form-label">Passport</label>
                                 <div class="col-sm-12">
-                                    <input type="passport" class="form-control" id="inputName" placeholder="Name">
+                                    <input type="passport"  v-model="form.password" class="form-control" id="inputName" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group  mt-3">

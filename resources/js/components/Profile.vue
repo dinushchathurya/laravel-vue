@@ -69,7 +69,7 @@
                         <div class="form-group ">
                            <label for="inputExperience" class="col-sm-2 col-form-label">Profile Photo</label>
                             <div class="col-sm-12">
-                                <input type="file" class="form-control" id="photo">
+                                <input type="file" @change="updateprofile" class="form-control" name="photo">
                             </div>
                         </div>
                          <div class="form-group">
@@ -108,6 +108,11 @@
         },
         mounted() {
             console.log('Component mounted.')
+        },
+        methods:{
+            updateprofile(file){
+                
+            }
         },
         created(){
             axios.get("api/profile").then(({ data }) => (this.form.fill (data)));

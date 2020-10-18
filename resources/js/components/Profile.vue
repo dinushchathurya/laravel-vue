@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="inputName" class="col-sm-2 col-form-label">Passport</label>
                                 <div class="col-sm-12">
-                                    <input type="passport"  v-model="form.password" class="form-control" id="inputName" placeholder="Name">
+                                    <input type="passport"  v-model="form.password" class="form-control" id="inputName" placeholder="password">
                                 </div>
                             </div>
                             <div class="form-group  mt-3">
@@ -115,12 +115,14 @@
         },
         methods: {
             getProfilePhoto(){
-                return "img/profile/"+this.form.photo;
+                let photo = (this.form.photo.length > 200 ) ? this.form.photo : "img/profile/" + this.form.photo;
+                return photo;
             },
             updateInfo() {
                 this.$Progress.start();
                 this.form.put('api/profile/')
                     .then(() => {
+                        Fire.$emit('AfterCreate');
                         this.$Progress.finish();
                     })
                     .catch(() => {

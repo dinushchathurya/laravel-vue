@@ -169,7 +169,9 @@
                     })
             },
             loadUsers(){
-                axios.get("api/user").then(({ data }) => (this.users = data.data));
+                if(this.$gate.isAdmin()){
+                     axios.get("api/user").then(({ data }) => (this.users = data.data));
+                }
             },
             createUser(){
                 this.$Progress.start();

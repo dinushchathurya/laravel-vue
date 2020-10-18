@@ -239,7 +239,11 @@
     </div>
     <!-- ./wrapper -->
     @auth
-        window.user = @json(auth(->user))
+
+    <script>
+         window.user = @json(auth(->user))
+    </script>
+    
     @endauth
     <script src="{{ asset('/js/app.js') }}"></script>
 </body>

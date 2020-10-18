@@ -238,6 +238,9 @@
         </footer>
     </div>
     <!-- ./wrapper -->
+    @auth
+        window.user = @json(auth(->user))
+    @endauth
     <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 

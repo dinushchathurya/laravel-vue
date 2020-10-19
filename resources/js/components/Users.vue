@@ -1,48 +1,54 @@
 <template>
-    <div class="row mt-5" v-if="$gate.isAdmin()">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                <h3 class="card-title">Users Table</h3>
-                    <div class="card-tools">
-                        <button class="btn btn-success" @click="newModal">Add New User 
-                            <i class ="fas fa-user-plus"></i>
-                        </button>
+    <div class="container">
+        <div class="row mt-5" v-if="$gate.isAdmin()">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                    <h3 class="card-title">Users Table</h3>
+                        <div class="card-tools">
+                            <button class="btn btn-success" @click="newModal">Add New User 
+                                <i class ="fas fa-user-plus"></i>
+                            </button>
+                        </div>
+                    </div>   
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Type</th>
+                                <th>Registered at</th>
+                                <th>Modify</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="user in users" :key="user.id">
+                                <td>{{user.id}}</td>
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.type | upText}}</td>
+                                <td>{{user.created_at | myDate }}</td>
+                                <td>
+                                    <a href="#" @click="editModal(user)">
+                                        <i class="fa fa-edit blue"></i>
+                                    </a>
+                                    /
+                                    <a href="#" @click="deleteUser(user.id)">
+                                        <i class="fa fa-trash red"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>   
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>E-mail</th>
-                            <th>Type</th>
-                            <th>Registered at</th>
-                            <th>Modify</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-for="user in users" :key="user.id">
-                            <td>{{user.id}}</td>
-                            <td>{{user.name}}</td>
-                            <td>{{user.email}}</td>
-                            <td>{{user.type | upText}}</td>
-                            <td>{{user.created_at | myDate }}</td>
-                            <td>
-                                <a href="#" @click="editModal(user)">
-                                    <i class="fa fa-edit blue"></i>
-                                </a>
-                                /
-                                <a href="#" @click="deleteUser(user.id)">
-                                    <i class="fa fa-trash red"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
+        </div>
+          <div class="mt-5" v-if="!$gate.isAdmin()">
+            <h2 style="text-align:center;">Not Found</h2>
+            <not-found></not-found>
         </div>
         <div class="modal fade" id="addNew" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

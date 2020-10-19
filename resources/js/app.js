@@ -65,7 +65,7 @@ Vue.filter('myDate', function(created){
      return moment(created).subtract(10, 'days').calendar();
  });
 
- window.Fire = new Vue();
+window.Fire = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -89,6 +89,11 @@ Vue.component(
 Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue').default
+);
+
+Vue.component(
+    'not-found',
+    require('./components/NotFound.vue').default
 );
 
 /**

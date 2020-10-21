@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row mt-5" v-if="$gate.isAdmin()">
+        <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -24,7 +24,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="user in users" :key="user.id">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <td>{{user.id}}</td>
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
@@ -43,10 +43,13 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="card-footer">
+                        <pagination :data="users" @pagination-change-page="getResults"></pagination>
+                    </div>
                 </div>
             </div>
         </div>
-          <div class="mt-5" v-if="!$gate.isAdmin()">
+          <div class="mt-5" v-if="!$gate.isAdminOrAuthor()">
             <h2 style="text-align:center;">Not Found</h2>
             <not-found></not-found>
         </div>
@@ -122,6 +125,12 @@
             }
         },
         methods:{
+            getResults(page = 1) {
+            axios.get('api/user?page=' + page)
+                .then(response => {
+                    this.users = response.data;
+                });
+            },
             updateUser(){
                 this.$Progress.start();
                 this.form.put('api/user/'+this.form.id)
@@ -175,8 +184,8 @@
                     })
             },
             loadUsers(){
-                if(this.$gate.isAdmin()){
-                     axios.get("api/user").then(({ data }) => (this.users = data.data));
+                if(this.$gate.isAdminOrAuthor()){
+                     axios.get("api/user").then(({ data }) => (this.users = data));
                 }
             },
             createUser(){

@@ -24,7 +24,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="user in users" :key="user.id">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <td>{{user.id}}</td>
                                 <td>{{user.name}}</td>
                                 <td>{{user.email}}</td>
@@ -130,8 +130,7 @@
                 .then(response => {
                     this.users = response.data;
                 });
-                }
-            }
+            },
             updateUser(){
                 this.$Progress.start();
                 this.form.put('api/user/'+this.form.id)

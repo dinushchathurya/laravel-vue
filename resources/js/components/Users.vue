@@ -125,6 +125,13 @@
             }
         },
         methods:{
+            getResults(page = 1) {
+            axios.get('api/user?page=' + page)
+                .then(response => {
+                    this.users = response.data;
+                });
+                }
+            }
             updateUser(){
                 this.$Progress.start();
                 this.form.put('api/user/'+this.form.id)

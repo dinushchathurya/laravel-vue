@@ -43,6 +43,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="card-footer">
+                        <pagination :data="users" @pagination-change-page="getResults"></pagination>
+                    </div>
                 </div>
             </div>
         </div>

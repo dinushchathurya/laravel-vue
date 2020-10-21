@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="row mt-5" v-if="$gate.isAdmin()">
+        <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-          <div class="mt-5" v-if="!$gate.isAdmin()">
+          <div class="mt-5" v-if="!$gate.isAdminOrAuthor()">
             <h2 style="text-align:center;">Not Found</h2>
             <not-found></not-found>
         </div>

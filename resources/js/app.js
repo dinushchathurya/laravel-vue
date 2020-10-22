@@ -111,8 +111,8 @@ const app = new Vue({
         search:''
     },
     methods:{
-        searchit(){
+        searchit:_debounce(()=>{
             Fire.$emit('searching');
-        }
+        },1000)
     }
 });

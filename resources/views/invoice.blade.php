@@ -151,7 +151,7 @@
                         </div>
                         <div class="row no-print">
                             <div class="col-12">
-                                <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                                <a href="" @click.prevent="printme" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                 <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                                     Payment
                                 </button>
